@@ -95,7 +95,10 @@ class SessionLogger:
         """Log a single round to the JSONL file."""
         usage = raw_response.get("usage", {})
         # OpenRouter includes cost in some responses
-        cost = usage.get("total_cost", 0.0)
+        # OpenRouter returns the charge as usage.cost (usage.total_cost does
+        # not exist -> this logged $0.00 for a ~$6.55 session on 2026-08-25,
+        # caught by external review). Keep total_cost as a fallback.
+        cost = usage.get("cost") or usage.get("total_cost") or 0.0
         self.total_cost += cost
         self.agent_costs[agent_name] = self.agent_costs.get(agent_name, 0.0) + cost
         self.round_count = round_num
