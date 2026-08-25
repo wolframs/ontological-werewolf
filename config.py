@@ -22,13 +22,13 @@ MODELS = [
     },
     {
         "name": "Gemini",
-        "model_id": "google/gemini-3-pro-preview",
+        "model_id": "google/gemini-3.1-pro-preview",
         "max_tokens": 2048,
         "clueless": False,
     },
     {
         "name": "Grok",
-        "model_id": "x-ai/grok-4-1-fast-reasoning",
+        "model_id": "x-ai/grok-4.6",
         "max_tokens": 2048,
         "clueless": False,
     },
