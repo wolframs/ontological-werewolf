@@ -5,3 +5,8 @@ __pycache__/
 venv/
 node_modules/
 .env
+.env.*
+!.env.example
+
+# Session transcripts and summaries written by main.py
+logs/
